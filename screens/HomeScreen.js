@@ -1,8 +1,8 @@
 
 import React, { useState, useEffect } from 'react';
 import { View, Text, FlatList, Button, StyleSheet } from 'react-native';
-import CustomHeader from '../components/CustomHeader';
 import NetInfo from '@react-native-community/netinfo';
+// import CustomHeader from '../components/CustomHeader';
 const HomeScreen = () => {
   const [words, setWords] = useState([]);
   const [word, setWord] = useState("")     
@@ -38,7 +38,6 @@ const HomeScreen = () => {
       const response = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`);
       const data = await response.json();
   
-      // alert(JSON.stringify(data))
       const heading = `Meaning of "${word}":`;
       const definition = data[0]?.meanings[0]?.definitions[0]?.definition || 'Meaning not found';
       const example = data[0]?.meanings[0]?.definitions[0]?.example || 'No example found';
@@ -80,7 +79,7 @@ const HomeScreen = () => {
         <Text >LOADING ...</Text>
       )}
     </View>
-  );
+  )
 };
 
 const styles = StyleSheet.create({
